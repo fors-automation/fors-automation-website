@@ -1,0 +1,35 @@
+# Site-wide metadata and the list of projects rendered on the homepage.
+# Add or edit projects here — never hand-write per-project HTML.
+# Valid categories: Games, Tools, Resources
+
+site:
+  title: "Fors-Automation"
+  tagline: "Tools and apps for automating the tedious stuff."
+
+projects:
+  - name: "Invoice Wrangler"
+    category: "Tools"
+    description: "Pulls invoices from your inbox, extracts totals, and exports a tidy spreadsheet."
+    url: "https://example.com/invoice-wrangler"
+    download: "https://example.com/downloads/invoice-wrangler.zip"
+    icon: "img/invoice-wrangler.png"
+
+  - name: "Shift Scheduler"
+    category: "Tools"
+    description: "Generates fair weekly staff rosters from availability and role rules."
+    url: "https://example.com/shift-scheduler"
+
+  - name: "Backup Sentinel"
+    category: "Tools"
+    description: "Watches your folders and verifies that nightly backups actually ran."
+    download: "https://example.com/downloads/backup-sentinel.zip"
+
+  - name: "Placeholder Game"
+    category: "Games"
+    description: "A sample entry — replace with your real game."
+    url: "https://example.com/placeholder-game"
+
+  - name: "Placeholder Resource"
+    category: "Resources"
+    description: "A sample entry — replace with your real resource or link collection."
+    url: "https://example.com/placeholder-resource"

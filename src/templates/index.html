@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for category, items in projects | groupby("category") %}
+<section class="category-section" data-category="{{ category | lower }}">
+  <h2 class="category-heading">{{ category }}</h2>
+  <ul class="project-grid">
+    {% for project in items %}
+    <li class="project-card">
+      {% if project.icon %}
+      <img class="project-icon" src="{{ project.icon }}" alt="" width="48" height="48">
+      {% endif %}
+      <h3 class="project-name">{{ project.name }}</h3>
+      <p class="project-description">{{ project.description }}</p>
+      <div class="project-links">
+        {% if project.url %}<a class="btn btn-primary" href="{{ project.url }}">Visit site</a>{% endif %}
+        {% if project.download %}<a class="btn btn-secondary" href="{{ project.download }}">Download</a>{% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}
+{% endblock %}

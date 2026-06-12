@@ -25,7 +25,8 @@ and `static/`. Until those exist, treat paths below as where things should go.
 ```bash
 # one-time setup
 python -m venv .venv
-.venv\Scripts\Activate.ps1      # Windows PowerShell
+source .venv/Scripts/activate   # Git Bash on Windows
+# .venv\Scripts\Activate.ps1    # PowerShell alternative
 pip install -r requirements.txt
 
 # build the site into dist/
@@ -46,6 +47,7 @@ Each entry under `projects:` (illustrative — adjust as the real schema settles
 ```yaml
 projects:
   - name: "Example App"
+    category: "Tools"                    # Games | Tools | Resources
     description: "One-line summary of what it does."
     url: "https://example.com"          # external site (optional)
     download: "https://.../app.zip"      # app download (optional)

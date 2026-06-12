@@ -1,0 +1,175 @@
+:root {
+  --bg: #0f1115;
+  --surface: #181b22;
+  --surface-hover: #1f232c;
+  --border: #2a2f3a;
+  --text: #e6e9ef;
+  --text-muted: #9aa3b2;
+  --accent: #4f8cff;
+  --accent-hover: #6ba0ff;
+  --radius: 12px;
+  --maxw: 960px;
+
+  /* Per-category accent colors */
+  --color-games:     #a855f7;
+  --color-tools:     #4f8cff;
+  --color-resources: #10b981;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.site-header {
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+/* Rainbow accent bar along the top */
+.site-header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg,
+    var(--color-games) 0%,
+    var(--color-tools) 50%,
+    var(--color-resources) 100%);
+}
+.site-title {
+  margin: 0;
+  font-size: 2.25rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--text) 60%, var(--text-muted));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.site-tagline {
+  margin: 0.5rem 0 0;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* ── Category sections ───────────────────────────────────── */
+.category-section {
+  margin-top: 3rem;
+  --cat-color: var(--accent); /* fallback */
+}
+.category-section[data-category="games"]     { --cat-color: var(--color-games); }
+.category-section[data-category="tools"]     { --cat-color: var(--color-tools); }
+.category-section[data-category="resources"] { --cat-color: var(--color-resources); }
+
+.category-heading {
+  margin: 0 0 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cat-color);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.category-heading::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── Project grid ────────────────────────────────────────── */
+.project-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  border-top: 3px solid var(--cat-color);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+.project-card:hover {
+  background: var(--surface-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 24px -4px color-mix(in srgb, var(--cat-color) 30%, transparent);
+}
+
+.project-icon {
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+.project-name {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.project-description {
+  margin: 0 0 1.25rem;
+  color: var(--text-muted);
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.btn {
+  display: inline-block;
+  padding: 0.45rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.btn-primary {
+  background: var(--cat-color);
+  color: #fff;
+}
+.btn-primary:hover {
+  filter: brightness(1.15);
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-secondary:hover {
+  border-color: var(--cat-color);
+  color: var(--cat-color);
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+.site-footer {
+  margin-top: 4rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
