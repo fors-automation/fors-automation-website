@@ -29,7 +29,7 @@ projects:
     description: "A sample entry — replace with your real game."
     url: "https://example.com/placeholder-game"
 
-  - name: "Placeholder Resource"
+  - name: "Online Antiques Shop"
     category: "Resources"
-    description: "A sample entry — replace with your real resource or link collection."
-    url: "https://example.com/placeholder-resource"
+    description: "Glory Days Past — Antiques and Vintage."
+    url: "https://glorydayspast.com"
